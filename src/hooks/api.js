@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { AppContext } from '@edx/frontend-platform/react';
+import { logError } from '@edx/frontend-platform/logging';  
 
 import { RequestKeys } from 'data/constants/requests';
 import { post } from 'data/services/lms/utils';
@@ -27,7 +28,12 @@ export const useInitializeApp = () => {
   const loadData = reduxHooks.useLoadData();
   return module.useNetworkRequest(api.initializeList, {
     requestKey: RequestKeys.initialize,
-    onSuccess: ({ data }) => loadData(data),
+    onSuccess: ({ data }) => {
+      loadData(data);
+    },
+    onFailure: (error) => {
+      logError(error);
+    },
   });
 };
 

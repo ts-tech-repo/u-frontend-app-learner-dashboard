@@ -1,0 +1,36 @@
+.new-card-div {
+  width: 100%;
+  flex: 0 0 100%;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    width: 32%;
+    flex: 0 0 32%;
+    margin-right: 12px;
+    margin-bottom: 1.5rem;
+  }
+} 
+.comingup{
+  background: #15376d;
+}
+.card-text{
+  font-size: 14px;
+}
+.card-title{
+  color: #000;
+}
+.course-list-column{
+  max-width: 70% !important;
+
+  @media (max-width: 821px) {
+    max-width: 100% !important;
+  }
+}
+.course-title-link {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

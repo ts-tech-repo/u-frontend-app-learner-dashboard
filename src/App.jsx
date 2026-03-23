@@ -17,6 +17,7 @@ import {
 } from 'data/redux';
 import { reduxHooks } from 'hooks';
 import Dashboard from 'containers/Dashboard';
+import { ActiveTabProvider } from "./ActiveTabContext";
 
 import track from 'tracking';
 
@@ -78,19 +79,21 @@ export const App = () => {
         <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
       </Helmet>
       <div>
-        <AppWrapper>
-          <LearnerDashboardHeader />
-          <main id="main">
-            {hasNetworkFailure
-              ? (
-                <Alert variant="danger">
+        <ActiveTabProvider>
+          <AppWrapper>
+            <LearnerDashboardHeader />
+            <main id="main">
+              {hasNetworkFailure
+                ? (
+                  <Alert variant="danger">
                   <ErrorPage message={formatMessage(messages.errorMessage, { supportEmail })} />
                 </Alert>
               ) : (
                 <Dashboard />
               )}
-          </main>
-        </AppWrapper>
+            </main>
+          </AppWrapper>
+        </ActiveTabProvider>
         <FooterSlot />
       </div>
     </>

@@ -9,12 +9,15 @@ const actions = redux.actions.app;
 
 /** Simple Selectors **/
 export const usePageNumber = () => useSelector(selectors.pageNumber);
-export const useFilters = () => useSelector(selectors.filters);
+// export const useFilters = () => useSelector(selectors.filters);
 export const useEmailConfirmationData = () => useSelector(selectors.emailConfirmation);
 export const useEnterpriseDashboardData = () => useSelector(selectors.enterpriseDashboard);
 export const usePlatformSettingsData = () => useSelector(selectors.platformSettings);
 export const useSelectSessionModalData = () => useSelector(selectors.selectSessionModal);
 export const useSocialShareSettings = () => useSelector(selectors.socialShareSettings);
+export const useGroupedCoursesData = () => useSelector(selectors.groupedCourses);
+
+export const useOrderedCoursesLabel = () => useSelector(selectors.orderedCoursesLabel);
 
 /** global-level meta-selectors **/
 export const useHasCourses = () => useSelector(selectors.hasCourses);
@@ -77,25 +80,25 @@ export const useSetPageNumber = () => {
   return (value) => dispatch(actions.setPageNumber(value));
 };
 
-export const useSetFilters = () => {
-  const dispatch = useDispatch();
-  return (value) => dispatch(actions.setFilters(value));
-};
+// export const useSetFilters = () => {
+//   const dispatch = useDispatch();
+//   return (value) => dispatch(actions.setFilters(value));
+// };
 
-export const useAddFilter = () => {
-  const dispatch = useDispatch();
-  return (value) => dispatch(actions.addFilter(value));
-};
+// export const useAddFilter = () => {
+//   const dispatch = useDispatch();
+//   return (value) => dispatch(actions.addFilter(value));
+// };
 
-export const useRemoveFilter = () => {
-  const dispatch = useDispatch();
-  return (value) => dispatch(actions.removeFilter(value));
-};
+// export const useRemoveFilter = () => {
+//   const dispatch = useDispatch();
+//   return (value) => dispatch(actions.removeFilter(value));
+// };
 
-export const useClearFilters = () => {
-  const dispatch = useDispatch();
-  return (value) => dispatch(actions.clearFilters(value));
-};
+// export const useClearFilters = () => {
+//   const dispatch = useDispatch();
+//   return (value) => dispatch(actions.clearFilters(value));
+// };
 
 export const useLoadData = () => {
   const dispatch = useDispatch();

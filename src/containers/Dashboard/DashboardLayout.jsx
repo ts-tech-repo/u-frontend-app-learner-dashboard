@@ -41,7 +41,7 @@ export const DashboardLayout = ({ children }) => {
           {children}
         </Col>
         <Col {...columnConfig.sidebar} className={['sidebar-column', !isCollapsed && 'not-collapsed']}>
-          <WidgetSidebarSlot />
+          {/* <WidgetSidebarSlot /> */}
         </Col>
       </Row>
     </Container>

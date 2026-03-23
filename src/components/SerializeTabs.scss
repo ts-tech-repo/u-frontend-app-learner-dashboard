@@ -1,0 +1,31 @@
+.grouped-tabs-container {
+  margin-bottom: 24px;
+}
+
+.grouped-tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grouped-tab-btn {
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-bottom 0.2s, color 0.2s;
+  font-size: 1rem;
+}
+
+.grouped-tab-btn.tab-active {
+  border-bottom: 3px solid #15376d;
+  font-weight: 600;
+  color: #15376d;
+}
+
+.grouped-tab-btn.tab-inactive:hover {
+  border-bottom: 3px solid #15376d;
+  color: #15376d;
+} 

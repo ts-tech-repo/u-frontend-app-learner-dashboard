@@ -33,6 +33,7 @@ export const LearnerDashboardHeader = () => {
         mainMenuItems={learnerHomeHeaderMenu.mainMenu}
         secondaryMenuItems={learnerHomeHeaderMenu.secondaryMenu}
         userMenuItems={learnerHomeHeaderMenu.userMenu}
+        showThemeToggle={false}
       />
       <MasqueradeBar />
     </>

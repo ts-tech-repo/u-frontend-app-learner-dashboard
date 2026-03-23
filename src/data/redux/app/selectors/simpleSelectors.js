@@ -15,8 +15,10 @@ export const simpleSelectors = StrictDict({
   enterpriseDashboard: mkSimpleSelector(app => app.enterpriseDashboard || {}),
   selectSessionModal: mkSimpleSelector(app => app.selectSessionModal),
   pageNumber: mkSimpleSelector(app => app.pageNumber),
-  filters: mkSimpleSelector(app => app.filters),
+  // filters: mkSimpleSelector(app => app.filters),
   socialShareSettings: mkSimpleSelector(app => app.socialShareSettings),
+  groupedCourses: mkSimpleSelector(app => app.groupedCourses),
+  orderedCoursesLabel: mkSimpleSelector(app => app.orderedCoursesLabel),
 });
 
 export const cardSimpleSelectors = StrictDict({

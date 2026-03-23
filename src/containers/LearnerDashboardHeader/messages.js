@@ -48,7 +48,7 @@ const messages = defineMessages({
   },
   course: {
     id: 'learnerVariantDashboard.course',
-    defaultMessage: 'Courses',
+    defaultMessage: 'IIT Kanpur eMasters Degree',
     description: 'Header link for switching to dashboard page.',
   },
   program: {
@@ -85,6 +85,16 @@ const messages = defineMessages({
     id: 'header.menu.new.label',
     defaultMessage: 'New',
     description: 'The text announcing that an item in the user menu is New',
+  },
+  'with.site.name': {
+    id: 'with.site.name',
+    defaultMessage: '{siteName}',
+    description: 'Header text with site name for logistration MFE pages',
+  },
+  'with.site.mfe_data': {
+  id: 'with.site.mfe_data',
+  defaultMessage: '{siteName} Dashboard - {location}, {year} | Terms and Conditions: {termsAndConditions}, FAQ: {faq}, Student Handbook: {studentHandbook}, Support: {support}, enable Contact Email: {enableContactEmail}',
+  description: 'Header text with site name, location, year, terms and conditions URL, FAQ URL, student handbook URL, and support URL',
   },
 });
 
