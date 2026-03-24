@@ -94,7 +94,7 @@ export const App = () => {
             </main>
           </AppWrapper>
         </ActiveTabProvider>
-        <FooterSlot />
+        {/* <FooterSlot /> */}
       </div>
     </>
   );
