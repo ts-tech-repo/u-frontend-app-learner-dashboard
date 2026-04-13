@@ -78,7 +78,6 @@ export const App = () => {
         <title>{formatMessage(messages.pageTitle)}</title>
         <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
       </Helmet>
-      <div>
         <ActiveTabProvider>
           <AppWrapper>
             <LearnerDashboardHeader />
@@ -95,7 +94,6 @@ export const App = () => {
           </AppWrapper>
         </ActiveTabProvider>
         {/* <FooterSlot /> */}
-      </div>
     </>
   );
 };
