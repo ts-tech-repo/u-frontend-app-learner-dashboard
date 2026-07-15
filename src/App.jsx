@@ -29,6 +29,7 @@ import LearnerDashboardHeader from 'containers/LearnerDashboardHeader';
 import { getConfig } from '@edx/frontend-platform';
 import messages from './messages';
 import './App.scss';
+import Footer from "./components/Footer"
 
 export const App = () => {
   const { authenticatedUser } = React.useContext(AppContext);
@@ -93,7 +94,7 @@ export const App = () => {
             </main>
           </AppWrapper>
         </ActiveTabProvider>
-        {/* <FooterSlot /> */}
+        <Footer />
     </>
   );
 };
