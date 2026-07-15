@@ -5,6 +5,7 @@ import { getConfig } from "@edx/frontend-platform";
 
 const Footer = () => {
   const { formatMessage } = useIntl();
+  const siteName = getConfig().SITE_NAME;
 
     React.useEffect(() => {
     const appendFooterContent = () => {
