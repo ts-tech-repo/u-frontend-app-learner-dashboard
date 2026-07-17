@@ -72,3 +72,6 @@ html[data-paragon-theme-variant="dark"] .card{
   background: var(--pgn-color-primary-light);
   box-shadow: none !important;
 }
+.dropdown-menu a[href*="/profile"] {
+    display: none;
+}
