@@ -67,3 +67,8 @@ $input-focus-box-shadow: var(--pgn-elevation-form-input-base); // hack to get up
 html[data-paragon-theme-variant="dark"] .card{
   background-color: #000 !important;
 }
+
+.course-tools section {
+  background: var(--pgn-color-primary-light);
+  box-shadow: none !important;
+}
