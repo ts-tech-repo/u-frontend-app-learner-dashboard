@@ -47,7 +47,7 @@ export const useInitializeApp = () => {
             const data = resp_data.data;
             window.ptcMandatory = data.mandatory;
             window.ptcURL = data.url;
-            window.ptcSubmitted = boolean(data.url) || false;
+            window.ptcSubmitted = !data.url;
             window.ptcContainerHeight = data.container_height;
             window.ptcContainerWidth = data.container_width;
           }
