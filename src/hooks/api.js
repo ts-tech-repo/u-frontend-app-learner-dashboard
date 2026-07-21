@@ -40,7 +40,7 @@ export const useInitializeApp = () => {
 
       if (enabled) {
         try {
-          const { postLoginPTC } = await urls.getPostLoginPtc();
+          const { postLoginPTC } = await api.getPostLoginPtc();
           console.log('[useInitializeApp] postLoginPTC =', postLoginPTC);
           if (postLoginPTC) {
             window.postLoginPTC = postLoginPTC;
