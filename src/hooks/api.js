@@ -40,10 +40,22 @@ export const useInitializeApp = () => {
 
       if (enabled) {
         try {
-          const { postLoginPTC } = await api.getPostLoginPtc();
-          console.log('[useInitializeApp] postLoginPTC =', postLoginPTC);
-          if (postLoginPTC) {
-            window.postLoginPTC = postLoginPTC;
+          const response = await api.getPostLoginPtc();
+          console.log('[useInitializeApp] postLoginPTC =', response);
+          if (response.error === false) {
+            const data = response.data.data;
+            window.ptcMandatory = data.mandatory;
+            window.ptcURL = data.url;
+            window.ptcSubmitted = false;
+            window.ptcContainerHeight = data.container_height;
+            window.ptcContainerWidth = data.container_width;
+          }
+          else {
+            window.ptcMandatory = false;
+            window.ptcURL = '';
+            window.ptcSubmitted = false;
+            window.ptcContainerHeight = 0;
+            window.ptcContainerWidth = 0;
           }
         }
         catch (error) {
