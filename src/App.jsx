@@ -41,7 +41,7 @@ export const App = () => {
   const hasNetworkFailure = isFailed.initialize || isFailed.refreshList;
   const { supportEmail } = reduxHooks.usePlatformSettingsData();
   const loadData = reduxHooks.useLoadData();
-  const [showPtc, setShowPtc] = React.useState(window.ptcSubmitted === undefined ? false : window.ptcSubmitted);
+  const [showPtc, setShowPtc] = React.useState(window.ptcSubmitted === undefined ? false : !window.ptcSubmitted);
 
   React.useEffect(() => {
     if (authenticatedUser?.administrator || getConfig().NODE_ENV === 'development') {
