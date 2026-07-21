@@ -43,7 +43,7 @@ export const useInitializeApp = () => {
           const response = await api.getPostLoginPtc();
           console.log('[useInitializeApp] postLoginPTC =', response);
           const resp_data = response.data;
-          if (resp_data.error === false) {
+          if (resp_data.error === false && resp_data.data !== null) {
             const data = resp_data.data;
             window.ptcMandatory = data.mandatory;
             window.ptcURL = data.url;
