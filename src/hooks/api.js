@@ -54,7 +54,7 @@ export const useInitializeApp = () => {
           else {
             window.ptcMandatory = false;
             window.ptcURL = '';
-            window.ptcSubmitted = false;
+            window.ptcSubmitted = true;
             window.ptcContainerHeight = 0;
             window.ptcContainerWidth = 0;
           }
