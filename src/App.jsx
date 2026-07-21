@@ -44,8 +44,8 @@ export const App = () => {
   const [showPtc, setShowPtc] = React.useState(false);
 
   React.useEffect(() => {
-    flag = window.ptcSubmitted === undefined ? true : window.ptcSubmitted;
-    setShowPtc(!flag);
+    const ptcFlag = window.ptcSubmitted === undefined ? true : window.ptcSubmitted;
+    setShowPtc(!ptcFlag);
   }, []);
 
   React.useEffect(() => {
