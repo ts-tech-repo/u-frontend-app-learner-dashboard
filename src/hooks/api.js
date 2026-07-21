@@ -50,6 +50,7 @@ export const useInitializeApp = () => {
             window.ptcSubmitted = !data.url;
             window.ptcContainerHeight = data.container_height;
             window.ptcContainerWidth = data.container_width;
+            window.dispatchEvent(new Event("ptc-updated"));
           }
           else {
             window.ptcMandatory = false;
@@ -57,6 +58,7 @@ export const useInitializeApp = () => {
             window.ptcSubmitted = true;
             window.ptcContainerHeight = 0;
             window.ptcContainerWidth = 0;
+            window.dispatchEvent(new Event("ptc-updated"));
           }
         }
         catch (error) {

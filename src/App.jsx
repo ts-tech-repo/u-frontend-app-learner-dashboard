@@ -44,8 +44,17 @@ export const App = () => {
   const [showPtc, setShowPtc] = React.useState(false);
 
   React.useEffect(() => {
-    const ptcFlag = window.ptcSubmitted === undefined ? true : window.ptcSubmitted;
-    setShowPtc(!ptcFlag);
+    const updatePtc = () => {
+      setShowPtc(!window.ptcSubmitted);
+    };
+
+    updatePtc(); // initial value
+
+    window.addEventListener("ptc-updated", updatePtc);
+
+    return () => {
+      window.removeEventListener("ptc-updated", updatePtc);
+    };
   }, []);
 
   React.useEffect(() => {
