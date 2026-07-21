@@ -9,6 +9,7 @@ import api from 'data/services/lms/api';
 
 import * as reduxHooks from 'data/redux/hooks';
 import * as module from './api';
+import urls from 'data/services/lms/urls';
 
 const { useMakeNetworkRequest } = reduxHooks;
 
@@ -28,7 +29,26 @@ export const useInitializeApp = () => {
   const loadData = reduxHooks.useLoadData();
   return module.useNetworkRequest(api.initializeList, {
     requestKey: RequestKeys.initialize,
-    onSuccess: ({ data }) => {
+    onSuccess: async ({ data }) => {
+      const config = getConfig();
+      console.log('[useInitializeApp] config =', config);
+      
+      const enabled = config.ENABLE_POST_LOGIN_PTC === undefined ? true : config.ENABLE_POST_LOGIN_PTC;
+
+      console.log('[useInitializeApp] postLoginPTC enabled =', enabled);
+
+      if (enabled) {
+        try {
+          const { postLoginPTC } = await urls.getPostLoginPtc();
+          console.log('[useInitializeApp] postLoginPTC =', postLoginPTC);
+          if (postLoginPTC) {
+            window.postLoginPTC = postLoginPTC;
+          }
+        }
+        catch (error) {
+          logError(error);
+        }
+      }
       loadData(data);
     },
     onFailure: (error) => {
