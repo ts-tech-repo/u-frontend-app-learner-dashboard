@@ -82,7 +82,7 @@ html[data-paragon-theme-variant="dark"] .card{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: 99999999999;
   background: rgba(0, 0, 0, 0.5);
@@ -92,7 +92,6 @@ html[data-paragon-theme-variant="dark"] .card{
   top: 12px;
   right: 12px;
   z-index: 1000;
-
   width: 36px;
   height: 36px;
   border: none;
