@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { AppContext } from '@edx/frontend-platform/react';
-import { logError } from '@edx/frontend-platform/logging';  
+import { logError } from '@edx/frontend-platform/logging'; 
+import { getConfig } from '@edx/frontend-platform'; 
 
 import { RequestKeys } from 'data/constants/requests';
 import { post } from 'data/services/lms/utils';

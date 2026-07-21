@@ -75,3 +75,45 @@ html[data-paragon-theme-variant="dark"] .card{
 .dropdown-menu a[href*="/profile"] {
     display: none;
 }
+
+.ptc-container, 
+.non-ptc-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  z-index: 99999999999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.ptc-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ptc-close-button:hover {
+  background: #f5f5f5;
+}
+.non-ptc-container iframe{
+  width: 40%;
+  height: 70vh;
+  border-radius: 10px;
+}
+.ptc-container iframe{
+  width: 90%;
+  height: 80vh;
+  border-radius: 10px;
+}

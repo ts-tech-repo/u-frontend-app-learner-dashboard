@@ -41,6 +41,7 @@ export const App = () => {
   const hasNetworkFailure = isFailed.initialize || isFailed.refreshList;
   const { supportEmail } = reduxHooks.usePlatformSettingsData();
   const loadData = reduxHooks.useLoadData();
+  const [showPtc, setShowPtc] = React.useState(window.ptcSubmitted === false);
 
   React.useEffect(() => {
     if (authenticatedUser?.administrator || getConfig().NODE_ENV === 'development') {
@@ -75,6 +76,29 @@ export const App = () => {
   }, [authenticatedUser, loadData]);
   return (
     <>
+      {showPtc && (
+        <div className="ptc-container">
+          {window.showPtcCloseButton && (
+            <button
+              type="button"
+              className="ptc-close-button"
+              onClick={() => setShowPtc(false)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          )}
+
+          <iframe
+            title="PTC"
+            style={{
+              height: window.ptcContainerHeight || "80vh",
+              width: window.ptcContainerWidth || "90%",
+            }}
+            src={window.ptcURL}
+          />
+        </div>
+      )}
       <Helmet>
         <title>{formatMessage(messages.pageTitle)}</title>
         <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
