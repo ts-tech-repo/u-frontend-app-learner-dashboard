@@ -14,7 +14,6 @@ const Footer = () => {
           "footer.footer .flex-grow-1",
         );
         if (footerElement) {
-
           const poweredByEdx = document.createElement("a");
           poweredByEdx.className = "edx-tag";
           poweredByEdx.href = "https://open.edx.org";
