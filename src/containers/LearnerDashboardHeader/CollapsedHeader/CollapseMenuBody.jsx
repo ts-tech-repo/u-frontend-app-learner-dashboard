@@ -27,11 +27,6 @@ export const CollapseMenuBody = ({ isOpen }) => {
         <WidgetNavbar placement={COLLAPSED_NAVBAR} />
         {authenticatedUser && (
           <>
-            {!!dashboard && (
-              <Button as="a" href={dashboard.url} variant="inverse-primary">
-                {formatMessage(messages.dashboard)}
-              </Button>
-            )}
             <Button
               as="a"
               href={`${getConfig().LMS_BASE_URL}/account/`}
