@@ -18,6 +18,15 @@ export const CollapsedHeader = () => {
   const isCollapsed = useIsCollapsed();
   const { isOpen, toggleIsOpen } = useLearnerDashboardHeaderData();
 
+  const MOBILE_BREAKPOINT = 480;
+  const [isMobile, setIsMobile] = useState(Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Get groupedCourses and tabNames
   const groupedCourses = reduxHooks.useGroupedCoursesData();
   const tabNames = reduxHooks.useOrderedCoursesLabel() || [];
@@ -53,7 +62,7 @@ export const CollapsedHeader = () => {
             className="p-4"
           />
           <BrandLogo />
-          {courseDisName && (
+          {!isMobile && courseDisName && (
               <div className="courseOrgDisName">
                 {courseDisName && (
                   <div className="courseOrgDisName">

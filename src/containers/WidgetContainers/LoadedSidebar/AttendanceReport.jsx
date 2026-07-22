@@ -118,7 +118,7 @@ const AttendanceReport = ({ course_name, homeUrl, cohort_name, name, description
 
       let labelFontSize = 12;
       const numBars = barData.length;
-      const screenWidth = window.innerWidth;
+      const screenWidth = Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth);
 
       if (screenWidth < 600) {
         if (numBars > 8) labelFontSize = 8;
@@ -216,7 +216,7 @@ const AttendanceReport = ({ course_name, homeUrl, cohort_name, name, description
             barWidth: "40%",
             itemStyle: { color: "#15376d" },
             label: {
-              show: window.innerWidth >= 992,
+              show: Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) >= 992,
               position: "top",
               formatter: "{c}%",
               fontWeight: "bold",

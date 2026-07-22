@@ -31,8 +31,8 @@ export const WidgetSidebar = ({ setSidebarShowing, course_name, course_number, h
   const [visibleQuicklinks, setVisibleQuicklinks] = useState([]);
   const [docLinks, setDocLinks] = useState([]);
 
-  const MOBILE_BREAKPOINT = 865;
-  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_BREAKPOINT);
+  const MOBILE_BREAKPOINT = 480;
+  const [isMobile, setIsMobile] = useState(Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT);
   const [quicklinksModalOpen, setQuicklinksModalOpen] = useState(false);
 
    const getHref = (link) => {
@@ -44,7 +44,7 @@ export const WidgetSidebar = ({ setSidebarShowing, course_name, course_number, h
   };
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    const handleResize = () => setIsMobile(Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
