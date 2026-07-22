@@ -6,7 +6,7 @@ import {
   MarketingModal,
   ModalDialog,
   PageBanner,
-} from '@openedx/paragon';
+} from 'ts-paragon';
 import { useIntl } from '@edx/frontend-platform/i18n';
 
 import confirmEmailSVG from 'assets/confirm-email.svg';
@@ -31,18 +31,7 @@ export const ConfirmEmailBanner = () => {
   return (
     <>
       <PageBanner show={showPageBanner} dismissible onDismiss={closePageBanner}>
-        {formatMessage(messages.confirmEmailTextReminderBanner, {
-          confirmNowButton: (
-            <Button
-              className="confirm-email-now-button"
-              variant="link"
-              size="inline"
-              onClick={openConfirmModalButtonClick}
-            >
-              {formatMessage(messages.confirmNowButton)}
-            </Button>
-          ),
-        })}
+      Your account has been deactivated. Please contact your support for more information.
       </PageBanner>
       <MarketingModal
         title=""
@@ -64,7 +53,7 @@ export const ConfirmEmailBanner = () => {
           </Button>
         )}
       >
-        <h2 className="text-center p-3 h1">{formatMessage(messages.confirmEmailModalHeader)}</h2>
+        <h1 className="text-center p-3">{formatMessage(messages.confirmEmailModalHeader)}</h1>
         <p className="text-center">{formatMessage(messages.confirmEmailModalBody)}</p>
       </MarketingModal>
     </>

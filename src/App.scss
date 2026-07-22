@@ -81,11 +81,10 @@ html[data-paragon-theme-variant="dark"] .card{
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100%;
   position: absolute;
   z-index: 99999999999;
-  background: rgba(0, 0, 0, 0.5);
+  margin-top: 4%;
 }
 .ptc-close-button {
   position: absolute;
@@ -115,4 +114,34 @@ html[data-paragon-theme-variant="dark"] .card{
   width: 90%;
   height: 80vh;
   border-radius: 10px;
+}
+/* Mobile (phones) */
+@media screen and (max-width: 767px) {
+  /* Styles for mobile */
+  .ptc-container{
+    margin-top:15% !important;
+    
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Styles for tablets */
+  .ptc-container{
+    margin-top:8% !important;
+  }
+  .ptc-container iframe{
+    height: 85vh !important;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  /* Styles for desktop */
+  .ptc-container{
+    margin-top:7% !important;
+  }
+  .ptc-container iframe{
+    height: 80vh !important;
+  }
 }
