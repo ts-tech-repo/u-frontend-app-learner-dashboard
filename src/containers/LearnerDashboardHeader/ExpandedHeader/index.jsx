@@ -4,17 +4,14 @@ import { getConfig } from "@edx/frontend-platform";
 import { useIntl } from "@edx/frontend-platform/i18n";
 import { Button } from "ts-paragon";
 
-import WidgetNavbar from "containers/WidgetContainers/WidgetNavbar";
 import urls from "data/services/lms/urls";
 import { reduxHooks } from "hooks";
 import { useActiveTab } from "../../../ActiveTabContext";
-import { EXPANDED_NAVBAR } from "widgets/RecommendationsPaintedDoorBtn/constants";
 
 import AuthenticatedUserDropdown from "./AuthenticatedUserDropdown";
 import { useIsCollapsed, findCoursesNavClicked } from "../hooks";
 import messages from "../messages";
 import BrandLogo from "../BrandLogo";
-import BannerComponent from "./MaintenanceBanner";
 
 export const ExpandedHeader = () => {
   const { formatMessage } = useIntl();
@@ -51,7 +48,6 @@ export const ExpandedHeader = () => {
   return (
     !isCollapsed && (
       <>
-        <BannerComponent />
         <header className="d-flex shadow-sm align-items-center learner-variant-header pl-4">
           <div className="flex-grow-1 d-flex align-items-center">
             <BrandLogo />
@@ -68,7 +64,6 @@ export const ExpandedHeader = () => {
               </div>
             )}
 
-            <WidgetNavbar placement={EXPANDED_NAVBAR} />
             <span className="flex-grow-1" />
           </div>
 

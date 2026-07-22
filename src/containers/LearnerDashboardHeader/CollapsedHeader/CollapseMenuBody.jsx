@@ -6,8 +6,6 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
 import { Button } from 'ts-paragon';
 
-import WidgetNavbar from 'containers/WidgetContainers/WidgetNavbar';
-import { COLLAPSED_NAVBAR } from 'widgets/RecommendationsPaintedDoorBtn/constants';
 
 export const CollapseMenuBody = ({ isOpen }) => {
   const { formatMessage } = useIntl();
