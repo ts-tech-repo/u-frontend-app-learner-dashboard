@@ -14,7 +14,7 @@ export const CollapseMenuBody = ({ isOpen }) => {
   return (
     isOpen && (
       <div className="d-flex flex-column shadow-sm nav-small-menu">
-        <WidgetNavbar placement={COLLAPSED_NAVBAR} />
+        {/* <WidgetNavbar placement={COLLAPSED_NAVBAR} /> */}
 
         {authenticatedUser && (
           <>
