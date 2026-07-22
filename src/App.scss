@@ -145,3 +145,10 @@ html[data-paragon-theme-variant="dark"] .card{
     height: 80vh !important;
   }
 }
+
+.masquerade-bar btn-primary.disabled, 
+.masquerade-bar .btn-primary:disabled {
+  background-color: #15376d;
+  border-color: #15376d;
+  color: #fff;
+}

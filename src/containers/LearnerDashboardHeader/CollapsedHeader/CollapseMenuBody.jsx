@@ -8,6 +8,7 @@ import { Button } from 'ts-paragon';
 
 import WidgetNavbar from 'containers/WidgetContainers/WidgetNavbar';
 import { COLLAPSED_NAVBAR } from 'widgets/RecommendationsPaintedDoorBtn/constants';
+import messages from '../messages';
 
 export const CollapseMenuBody = ({ isOpen }) => {
   const { formatMessage } = useIntl();
