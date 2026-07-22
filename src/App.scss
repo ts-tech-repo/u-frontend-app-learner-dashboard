@@ -84,7 +84,7 @@ html[data-paragon-theme-variant="dark"] .card{
   height: 100%;
   position: absolute;
   z-index: 99999999999;
-  margin-top: 4%;
+  margin-top: 5%;
 }
 .ptc-close-button {
   position: absolute;
@@ -119,16 +119,16 @@ html[data-paragon-theme-variant="dark"] .card{
 @media screen and (max-width: 767px) {
   /* Styles for mobile */
   .ptc-container{
-    margin-top:15% !important;
+    margin-top:23% !important;
     
   }
 }
 
 /* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   /* Styles for tablets */
   .ptc-container{
-    margin-top:8% !important;
+    margin-top:11% !important;
   }
   .ptc-container iframe{
     height: 85vh !important;
@@ -136,15 +136,13 @@ html[data-paragon-theme-variant="dark"] .card{
 }
 
 /* Desktop */
-@media screen and (min-width: 1024px) and (max-width: 1280px) {
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
   /* Styles for desktop */
   .ptc-container{
-    margin-top:7% !important;
-  }
-  .ptc-container iframe{
-    height: 80vh !important;
+    margin-top:9% !important;
   }
 }
+
 
 button.btn.btn-brand{
   background-color: #15376d !important;

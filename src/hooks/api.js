@@ -40,16 +40,13 @@ export const useInitializeApp = () => {
 
       if (enabled) {
         try {
-          const response = await api.getPostLoginPtc();
-          console.log('[useInitializeApp] postLoginPTC =', response);
-          const resp_data = response.data;
-          if (resp_data.error === false && resp_data.data !== null && Object.keys(resp_data.data).length > 0) {
-            const data = resp_data.data;
-            window.ptcMandatory = data.mandatory;
-            window.ptcURL = data.url;
-            window.ptcSubmitted = !data.url;
-            window.ptcContainerHeight = data.container_height;
-            window.ptcContainerWidth = data.container_width;
+          const ptcConfig = data.ptc_config;
+          if (ptcConfig && typeof ptcConfig === "object" && !Array.isArray(ptcConfig)){
+            window.ptcMandatory = ptcConfig.mandatory;
+            window.ptcURL = ptcConfig.url;
+            window.ptcSubmitted = !ptcConfig.url;
+            window.ptcContainerHeight = ptcConfig.container_height;
+            window.ptcContainerWidth = ptcConfig.container_width;
             window.dispatchEvent(new Event("ptc-updated"));
           }
           else {
