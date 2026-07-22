@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { useIntl } from "@edx/frontend-platform/i18n";
 import { MenuIcon, Close } from "ts-paragon/icons";
