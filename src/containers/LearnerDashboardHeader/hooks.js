@@ -17,8 +17,15 @@ export const useIsCollapsed = () => {
   console.log('breakpoints:', breakpoints);
   console.log('window.innerWidth:', window.innerWidth);
 
-  const isCollapsed =
-    (size.width ?? window.innerWidth) <= breakpoints.large.minWidth;
+  const width = size.width ?? window.innerWidth;
+
+  const bodyWidth =
+    typeof document !== "undefined" && document.body
+      ? Math.min(document.body.clientWidth, width)
+      : width;
+  console.log('bodyWidth:', bodyWidth);
+
+  const isCollapsed = (bodyWidth <= breakpoints.large.minWidth);
 
   console.log('collapsed:', isCollapsed);
 

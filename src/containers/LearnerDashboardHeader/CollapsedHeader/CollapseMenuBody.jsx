@@ -36,23 +36,23 @@ export const CollapseMenuBody = ({ isOpen }) => {
   const { activeTab } = useActiveTab();
 
   // Get the current tab's courseProvider name
-  let courseOrgDisName = '';
+  let courseDisName = '';
   if (groupedCourses && tabNames.length > 0) {
     const tabKey = tabNames[activeTab];
     const tabObj = groupedCourses && groupedCourses[tabKey];
     const tabCourses = tabObj && Array.isArray(tabObj.courses) ? tabObj.courses.flat() : [];
     if (tabCourses.length > 0 && tabCourses[0].courseProvider) {
-      courseOrgDisName = tabCourses[0].courseProvider.name;
+      courseDisName = tabCourses[0].course.courseName;
     }
   }
 
   return (
     isOpen && (
       <div className="d-flex flex-column shadow-sm nav-small-menu">
-        {courseOrgDisName && (
+        {courseDisName && (
           <Button as="a" variant="inverse-primary" className="courseOrgDisName">
-              {courseOrgDisName}
-            {courseOrgDisName.includes("National AI Olympiad") && "™"}
+              {courseDisName}
+            {courseDisName.includes("National AI Olympiad") && "™"}
           </Button>
         )}
         

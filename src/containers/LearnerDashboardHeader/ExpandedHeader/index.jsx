@@ -36,14 +36,14 @@ export const ExpandedHeader = () => {
   const { activeTab } = useActiveTab();
 
   // Get the current tab's courseProvider name
-  let courseOrgDisName = "";
+  let courseDisName = "";
   if (groupedCourses && tabNames.length > 0) {
     const groupedCoursesArr = Object.values(groupedCourses);
     const tabObj = groupedCoursesArr[activeTab];
     const tabCourses =
       tabObj && Array.isArray(tabObj.courses) ? tabObj.courses.flat() : [];
     if (tabCourses.length > 0 && tabCourses[0].courseProvider) {
-      courseOrgDisName = tabCourses[0].courseProvider.name;
+      courseDisName = tabCourses[0].course.courseName;
     }
   }
 
@@ -55,12 +55,12 @@ export const ExpandedHeader = () => {
             <BrandLogo />
 
             {/* Show course provider name for active tab */}
-            {courseOrgDisName && (
+            {courseDisName && (
               <div className="courseOrgDisName">
-                {courseOrgDisName && (
+                {courseDisName && (
                   <div className="courseOrgDisName">
-                    {courseOrgDisName}
-                    {courseOrgDisName.includes("National AI Olympiad") && "™"}
+                    {courseDisName}
+                    {courseDisName.includes("National AI Olympiad") && "™"}
                   </div>
                 )}
               </div>
