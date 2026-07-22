@@ -146,9 +146,8 @@ html[data-paragon-theme-variant="dark"] .card{
   }
 }
 
-.masquerade-bar btn-primary.disabled, 
-.masquerade-bar .btn-primary:disabled {
-  background-color: #15376d;
-  border-color: #15376d;
-  color: #fff;
+button.btn.btn-brand{
+  background-color: #15376d !important;
+  border-color: #15376d !important;
+  color: #fff !important;
 }

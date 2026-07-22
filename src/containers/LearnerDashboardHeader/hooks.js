@@ -13,6 +13,7 @@ export const state = StrictDict({
 export const useIsCollapsed = () => {
   const { width } = useWindowSize();
   const isCollapsed = React.useMemo(() => (width <= breakpoints.large.minWidth), [width]);
+  console.log('[useIsCollapsed] isCollapsed =', isCollapsed);
   return isCollapsed;
 };
 
