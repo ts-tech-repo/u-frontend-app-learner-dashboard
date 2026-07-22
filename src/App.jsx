@@ -20,8 +20,13 @@ import track from "tracking";
 
 import fakeData from "data/services/lms/fakeData/courses";
 
-import AppWrapper from "containers/AppWrapper";
-import LearnerDashboardHeader from "containers/LearnerDashboardHeader";
+import AppWrapper from 'containers/AppWrapper';
+import LearnerDashboardHeader from 'containers/LearnerDashboardHeader';
+
+import { getConfig } from '@edx/frontend-platform';
+import messages from './messages';
+import './App.scss';
+import Footer from "./components/Footer"
 
 import { getConfig } from "@edx/frontend-platform";
 import messages from "./messages";
@@ -37,6 +42,21 @@ export const App = () => {
   const hasNetworkFailure = isFailed.initialize || isFailed.refreshList;
   const { supportEmail } = reduxHooks.usePlatformSettingsData();
   const loadData = reduxHooks.useLoadData();
+  const [showPtc, setShowPtc] = React.useState(false);
+
+  React.useEffect(() => {
+    const updatePtc = () => {
+      setShowPtc(!window.ptcSubmitted);
+    };
+
+    updatePtc(); // initial value
+
+    window.addEventListener("ptc-updated", updatePtc);
+
+    return () => {
+      window.removeEventListener("ptc-updated", updatePtc);
+    };
+  }, []);
 
   React.useEffect(() => {
     if (
@@ -71,6 +91,29 @@ export const App = () => {
   }, [authenticatedUser, loadData]);
   return (
     <>
+      {showPtc && (
+        <div className="ptc-container">
+          {window.showPtcCloseButton && (
+            <button
+              type="button"
+              className="ptc-close-button"
+              onClick={() => setShowPtc(false)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          )}
+
+          <iframe
+            title="PTC"
+            style={{
+              height: window.ptcContainerHeight || "80vh",
+              width: window.ptcContainerWidth || "90%",
+            }}
+            src={window.ptcURL}
+          />
+        </div>
+      )}
       <Helmet>
         <title>{formatMessage(messages.pageTitle)}</title>
         <link
@@ -79,25 +122,22 @@ export const App = () => {
           type="image/x-icon"
         />
       </Helmet>
-      <ActiveTabProvider>
-        <AppWrapper>
-          <LearnerDashboardHeader />
-          <main id="main">
-            {hasNetworkFailure ? (
-              <Alert variant="danger">
-                <ErrorPage
-                  message={formatMessage(messages.errorMessage, {
-                    supportEmail,
-                  })}
-                />
-              </Alert>
-            ) : (
-              <Dashboard />
-            )}
-          </main>
-        </AppWrapper>
-      </ActiveTabProvider>
-      <Footer />
+        <ActiveTabProvider>
+          <AppWrapper>
+            <LearnerDashboardHeader />
+            <main id="main">
+              {hasNetworkFailure
+                ? (
+                  <Alert variant="danger">
+                  <ErrorPage message={formatMessage(messages.errorMessage, { supportEmail })} />
+                </Alert>
+              ) : (
+                <Dashboard />
+              )}
+            </main>
+          </AppWrapper>
+        </ActiveTabProvider>
+        <Footer />
     </>
   );
 };

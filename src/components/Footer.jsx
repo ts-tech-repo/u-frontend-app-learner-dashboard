@@ -7,7 +7,7 @@ const Footer = () => {
   const { formatMessage } = useIntl();
   const siteName = getConfig().SITE_NAME;
 
-  React.useEffect(() => {
+    React.useEffect(() => {
     const appendFooterContent = () => {
       if (!document.querySelector(".faq_tag")) {
         const footerElement = document.querySelector(
@@ -61,10 +61,7 @@ const Footer = () => {
           />
         </a>
 
-        <div
-          className="flex-grow-1"
-          style={{ display: "flex", justifyContent: "end" }}
-        />
+        <div className="flex-grow-1" style={{display: "flex",justifyContent: "end"}} />
       </div>
     </footer>
   );

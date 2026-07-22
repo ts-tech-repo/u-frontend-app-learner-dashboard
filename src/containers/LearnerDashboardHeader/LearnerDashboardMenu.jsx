@@ -48,11 +48,11 @@ const getLearnerHeaderMenu = (
     {
       heading: '',
       items: [
-        {
-          type: 'item',
-          href: `${getConfig().ACCOUNT_PROFILE_URL}/u/${authenticatedUser?.username}`,
-          content: formatMessage(messages.profile),
-        },
+        // {
+        //   type: 'item',
+        //   href: `${getConfig().ACCOUNT_PROFILE_URL}/u/${authenticatedUser?.username}`,
+        //   content: formatMessage(messages.profile),
+        // },
         {
           type: 'item',
           href: `${getConfig().ACCOUNT_SETTINGS_URL}`,

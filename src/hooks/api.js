@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { AppContext } from '@edx/frontend-platform/react';
-import { logError } from '@edx/frontend-platform/logging';  
+import { logError } from '@edx/frontend-platform/logging'; 
+import { getConfig } from '@edx/frontend-platform'; 
 
 import { RequestKeys } from 'data/constants/requests';
 import { post } from 'data/services/lms/utils';
@@ -9,6 +10,7 @@ import api from 'data/services/lms/api';
 
 import * as reduxHooks from 'data/redux/hooks';
 import * as module from './api';
+import urls from 'data/services/lms/urls';
 
 const { useMakeNetworkRequest } = reduxHooks;
 
@@ -28,7 +30,38 @@ export const useInitializeApp = () => {
   const loadData = reduxHooks.useLoadData();
   return module.useNetworkRequest(api.initializeList, {
     requestKey: RequestKeys.initialize,
-    onSuccess: ({ data }) => {
+    onSuccess: async ({ data }) => {
+      const config = getConfig();
+      console.log('[useInitializeApp] config =', config);
+      
+      const enabled = config.ENABLE_POST_LOGIN_PTC === undefined ? true : config.ENABLE_POST_LOGIN_PTC;
+
+      console.log('[useInitializeApp] postLoginPTC enabled =', enabled);
+
+      if (enabled) {
+        try {
+          const ptcConfig = data.ptc_config;
+          if (ptcConfig && typeof ptcConfig === "object" && !Array.isArray(ptcConfig)){
+            window.ptcMandatory = ptcConfig.mandatory;
+            window.ptcURL = ptcConfig.url;
+            window.ptcSubmitted = !ptcConfig.url;
+            window.ptcContainerHeight = ptcConfig.container_height;
+            window.ptcContainerWidth = ptcConfig.container_width;
+            window.dispatchEvent(new Event("ptc-updated"));
+          }
+          else {
+            window.ptcMandatory = false;
+            window.ptcURL = '';
+            window.ptcSubmitted = true;
+            window.ptcContainerHeight = 0;
+            window.ptcContainerWidth = 0;
+            window.dispatchEvent(new Event("ptc-updated"));
+          }
+        }
+        catch (error) {
+          logError(error);
+        }
+      }
       loadData(data);
     },
     onFailure: (error) => {

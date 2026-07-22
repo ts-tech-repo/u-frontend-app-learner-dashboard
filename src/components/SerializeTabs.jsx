@@ -6,18 +6,18 @@ import { getConfig } from '@edx/frontend-platform';
 import SerializeCourses from './SerializeCourses';
 import './SerializeTabs.scss';
 
-const MOBILE_BREAKPOINT = 768;
+const MOBILE_BREAKPOINT = 480;
 
 const SerializeTabs = ({ tabNames }) => {
   const { activeTab, setActiveTab } = useActiveTab();
-  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_BREAKPOINT);
+  const [isMobile, setIsMobile] = useState(Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT);
 
   console.log('[SerializeTabs] Props: tabNames =', tabNames);
   console.log('[SerializeTabs] ActiveTab =', activeTab, 'IsMobile =', isMobile);
 
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < MOBILE_BREAKPOINT;
+      const mobile = Math.min(document.body?.clientWidth ?? window.innerWidth, window.innerWidth) < MOBILE_BREAKPOINT;
       setIsMobile(mobile);
       console.log('[SerializeTabs] Window resized, isMobile =', mobile);
     };

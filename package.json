@@ -64,6 +64,7 @@
     "redux-thunk": "2.4.2",
     "regenerator-runtime": "^0.14.0",
     "reselect": "^4.0.0",
+    "ts-paragon": "^20.18.15",
     "universal-cookie": "^4.0.4",
     "util": "^0.12.4"
   },
